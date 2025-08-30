@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 12:33:21 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/08/29 18:37:06 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/08/30 06:10:45 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ const std::string& Bureaucrat::getName() const {
     return name;
 }
 
-const int& Bureaucrat::getGrade() const {
+int Bureaucrat::getGrade() const {
     return grade;
 }
 
