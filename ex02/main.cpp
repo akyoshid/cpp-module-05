@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 12:32:50 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/08/31 15:17:20 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/08/31 17:52:29 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,25 +29,25 @@ int to_int(const std::string& s) {
 }
 
 void run_with_form(Bureaucrat& b, AForm& f) {
-  std::cout << f << std::endl;
-  b.signForm(f);
-  std::cout << f << std::endl;
-  b.executeForm(f);
+    std::cout << f << std::endl;
+    b.signForm(f);
+    std::cout << f << std::endl;
+    b.executeForm(f);
 }
 
 void run_test(char* bureName, int bureGrade, char* formTarget, int formType) {
-  Bureaucrat b(bureName, bureGrade);
-  std::cout << b << std::endl;
-  if (formType == 0) {
-    ShrubberyCreationForm form(formTarget);
-    run_with_form(b, form);
-  } else if (formType == 1) {
-    RobotomyRequestForm form(formTarget);
-    run_with_form(b, form);
-  } else {
-    PresidentialPardonForm form(formTarget);
-    run_with_form(b, form);
-  }
+    Bureaucrat b(bureName, bureGrade);
+    std::cout << b << std::endl;
+    if (formType == 0) {
+        ShrubberyCreationForm form(formTarget);
+        run_with_form(b, form);
+    } else if (formType == 1) {
+        RobotomyRequestForm form(formTarget);
+        run_with_form(b, form);
+    } else {
+        PresidentialPardonForm form(formTarget);
+        run_with_form(b, form);
+    }
 }
 
 int main(int argc, char *argv[]) {
