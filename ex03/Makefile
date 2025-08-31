@@ -5,6 +5,7 @@ OBJ_DIR =	obj/
 INC = \
 			AForm.hpp \
 			Bureaucrat.hpp \
+			Intern.hpp \
 			PresidentialPardonForm.hpp \
 			RobotomyRequestForm.hpp \
 			ShrubberyCreationForm.hpp
@@ -13,6 +14,7 @@ SRC = \
 			AForm.cpp \
 			Bureaucrat.cpp \
 			main.cpp \
+			Intern.cpp \
 			PresidentialPardonForm.cpp \
 			RobotomyRequestForm.cpp \
 			ShrubberyCreationForm.cpp
@@ -44,6 +46,6 @@ re: fclean all
 val:
 	valgrind --leak-check=full --leak-check=full \
 	--show-leak-kinds=definite,indirect,possible \
-	--track-fds=yes ./$(NAME)
+	--track-fds=yes ./$(NAME) Trump 1
 
 .PHONY: all clean fclean re val
