@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 01:30:23 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/08/31 03:11:02 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/08/31 14:56:41 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Form::Form(const std::string& name, int gradeToSign, int gradeToExec)
 }
 
 Form::Form(const Form& src)
-    : name_(src.name_), signedFlag_(src.signedFlag_),
+    : name_(src.name_), signedFlag_(false),
         gradeToSign_(src.gradeToSign_),
         gradeToExec_(src.gradeToExec_) {
 }
