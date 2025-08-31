@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 12:33:21 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/08/30 06:10:45 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/08/31 02:20:16 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat(const std::string& name, int grade)
-    : name(name), grade(grade) {
+    : name_(name), grade_(grade) {
     if (grade < 1)
         throw GradeTooHighException();
     else if (grade > 150)
@@ -24,12 +24,12 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade)
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& src)
-    : name(src.name), grade(src.grade) {
+    : name_(src.name_), grade_(src.grade_) {
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& src) {
     if (this != &src)
-        grade = src.grade;
+        grade_ = src.grade_;
     return *this;
 }
 
@@ -37,26 +37,25 @@ Bureaucrat::~Bureaucrat() {
 }
 
 const std::string& Bureaucrat::getName() const {
-    return name;
+    return name_;
 }
 
 int Bureaucrat::getGrade() const {
-    return grade;
+    return grade_;
 }
 
 void Bureaucrat::incrementGrade() {
-    if (grade > 1)
-        --grade;
+    if (grade_ > 1)
+        --grade_;
     else
         throw GradeTooHighException();
 }
 
 void Bureaucrat::decrementGrade() {
-    if (grade < 150)
-        ++grade;
+    if (grade_ < 150)
+        ++grade_;
     else
         throw GradeTooLowException();
-
 }
 
 Bureaucrat::GradeTooHighException::GradeTooHighException()

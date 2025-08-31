@@ -6,12 +6,12 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 12:33:23 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/08/30 06:23:22 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/08/31 02:18:30 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EX00_BUREAUCRAT_HPP_
-# define EX00_BUREAUCRAT_HPP_
+#ifndef EX01_BUREAUCRAT_HPP_
+# define EX01_BUREAUCRAT_HPP_
 
 # include <string>
 # include <iostream>
@@ -37,8 +37,8 @@ class Bureaucrat {
     };
  private:
     Bureaucrat(); // = delete;
-    const std::string name;
-    int grade;
+    const std::string name_;
+    int grade_;
 };
 
 std::ostream& operator<<(std::ostream& lhs, const Bureaucrat& rhs);
