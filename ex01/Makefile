@@ -3,10 +3,12 @@ NAME =		a.out
 OBJ_DIR =	obj/
 
 INC = \
-			Bureaucrat.hpp
+			Bureaucrat.hpp \
+			Form.hpp
 
 SRC = \
 			Bureaucrat.cpp \
+			Form.cpp \
 			main.cpp
 
 OBJ =		$(patsubst %.cpp,$(OBJ_DIR)%.o,$(SRC))

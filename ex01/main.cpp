@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 12:32:50 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/08/29 18:38:54 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/08/31 02:17:53 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <stdexcept>
 #include <sstream>
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int to_int(const std::string& s) {
     std::istringstream iss(s);
@@ -24,27 +25,23 @@ int to_int(const std::string& s) {
     return value;
 }
 
-void run_test(char *name, int grade) {
-    Bureaucrat b1(name, grade);
+void run_test(char* bureName, int bureGrade,
+    char* formName, int formGradeToSign, int formGradeToExec) {
+    Bureaucrat b1(bureName, bureGrade);
     std::cout << b1 << std::endl;
-    b1.incrementGrade();
-    b1.decrementGrade();
-    b1.decrementGrade();
-    Bureaucrat b2(b1);
-    b2.incrementGrade();
-    Bureaucrat b3(b1);
-    b3 = b2;
-    std::cout << b2 << std::endl;
-    std::cout << b3 << std::endl;
+    Form f1(formName, formGradeToSign, formGradeToExec);
+    std::cout << f1 << std::endl;
 }
 
 int main(int argc, char *argv[]) {
-    if (argc != 3) {
-        std::cerr << "Usage: ./a.out name grade" << std::endl;
+    if (argc != 6) {
+        std::cerr << "Usage: ./a.out BureaucratName BureaucratGrade "
+            << "FormName FormGradeToSign FormGradeToExec" << std::endl;
         return 1;
     }
     try {
-        run_test(argv[1], to_int(argv[2]));
+        run_test(argv[1], to_int(argv[2]),
+            argv[3], to_int(argv[4]), to_int(argv[5]));
     } catch (const std::exception& e) {
         std::cerr << e.what() << std::endl;
         return 1;
