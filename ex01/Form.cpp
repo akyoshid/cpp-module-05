@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 01:30:23 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/08/31 02:16:20 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/08/31 02:47:50 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <iomanip>
 #include <exception>
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
 Form::Form(const std::string& name, int gradeToSign, int gradeToExec)
     : name_(name), signedFlag_(false),
@@ -68,6 +69,13 @@ Form::GradeTooHighException::GradeTooHighException()
 
 Form::GradeTooLowException::GradeTooLowException()
     : runtime_error("Form: grade is too low"){
+}
+
+void Form::beSigned(const Bureaucrat& b) {
+    if (gradeToSign_ >= b.getGrade())
+        signedFlag_ = true;
+    else
+        throw GradeTooLowException();
 }
 
 std::ostream& operator<<(std::ostream& lhs, const Form& rhs) {

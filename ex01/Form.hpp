@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 01:30:20 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/08/31 02:05:11 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/08/31 02:50:28 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <string>
 # include <iostream>
 # include <exception>
+
+class Bureaucrat;
 
 class Form {
  public:
@@ -35,6 +37,7 @@ class Form {
      public:
         GradeTooLowException();
     };
+    void beSigned(const Bureaucrat& b);
  private:
     const std::string name_;
     bool signedFlag_;

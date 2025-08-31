@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 12:32:50 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/08/31 02:17:53 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/08/31 02:41:35 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void run_test(char* bureName, int bureGrade,
     std::cout << b1 << std::endl;
     Form f1(formName, formGradeToSign, formGradeToExec);
     std::cout << f1 << std::endl;
+    b1.signForm(f1);
+    std::cout << f1 << std::endl;
 }
 
 int main(int argc, char *argv[]) {
@@ -44,9 +46,6 @@ int main(int argc, char *argv[]) {
             argv[3], to_int(argv[4]), to_int(argv[5]));
     } catch (const std::exception& e) {
         std::cerr << e.what() << std::endl;
-        return 1;
-    } catch (...) {
-        std::cerr << "Unknown exception" << std::endl;
         return 1;
     }
     return 0;
