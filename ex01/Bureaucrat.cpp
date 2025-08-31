@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 12:33:21 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/08/31 02:47:17 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/08/31 03:13:50 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void Bureaucrat::signForm(Form& f) {
         std::cout << name_ << " signed " << f.getName() << std::endl;
     } catch (std::exception& e) {
         std::cerr << name_ << " couldn’t sign " << f.getName()
-            << " because \'" << e.what() << "\'." << std::endl;
+            << " because '" << e.what() << "'." << std::endl;
     }
 }
 

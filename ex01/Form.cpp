@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 01:30:23 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/08/31 02:47:50 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/08/31 03:11:02 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,11 @@ int Form::getGradeToExec() const {
 }
 
 Form::GradeTooHighException::GradeTooHighException()
-    : runtime_error("Form: grade is too high"){
+    : std::runtime_error("Form: grade is too high"){
 }
 
 Form::GradeTooLowException::GradeTooLowException()
-    : runtime_error("Form: grade is too low"){
+    : std::runtime_error("Form: grade is too low"){
 }
 
 void Form::beSigned(const Bureaucrat& b) {
