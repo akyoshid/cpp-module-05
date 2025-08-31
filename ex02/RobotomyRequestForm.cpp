@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 08:43:23 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/08/31 14:52:06 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/08/31 15:29:08 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,11 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
         std::cout << mes[i] << '\a' << std::flush;
         usleep(500000);
     }
-    std::srand(std::time(NULL));
+    static bool seeded = false;
+    if (!seeded) {
+        std::srand(std::time(NULL));
+        seeded = true;
+    }
     if (std::rand() % 2)
         std::cout << target_
             << " has been robotomized successfully." << std::endl;
