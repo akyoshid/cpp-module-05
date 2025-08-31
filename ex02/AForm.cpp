@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 01:30:23 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/08/31 08:45:28 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/08/31 14:53:17 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ AForm::AForm(const std::string& name, int gradeToSign, int gradeToExec)
 }
 
 AForm::AForm(const AForm& src)
-    : name_(src.name_), signedFlag_(src.signedFlag_),
+    : name_(src.name_), signedFlag_(false),
         gradeToSign_(src.gradeToSign_),
         gradeToExec_(src.gradeToExec_) {
 }
@@ -71,10 +71,21 @@ AForm::GradeTooLowException::GradeTooLowException()
     : std::runtime_error("AForm: grade is too low"){
 }
 
+AForm::NotSignedException::NotSignedException()
+    : std::runtime_error("AForm: form is not signed"){
+}
+
 void AForm::beSigned(const Bureaucrat& b) {
     if (gradeToSign_ >= b.getGrade())
         signedFlag_ = true;
     else
+        throw GradeTooLowException();
+}
+
+void AForm::checkExecutable(const Bureaucrat& b) const {
+    if (signedFlag_ == false)
+        throw NotSignedException();
+    if (gradeToExec_ < b.getGrade())
         throw GradeTooLowException();
 }
 

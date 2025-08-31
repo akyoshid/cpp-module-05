@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 12:33:23 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/08/31 08:46:02 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/08/31 14:31:18 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ class Bureaucrat {
      public:
         GradeTooLowException();
     };
-    void signForm(AForm& f);
+    void signForm(AForm& f) const;
+    void executeForm(const AForm& f) const;
  private:
     Bureaucrat(); // = delete;
     const std::string name_;

@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 01:30:20 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/08/31 08:58:34 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/08/31 14:12:58 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class AForm {
     AForm(const std::string& name, int grade_to_sign, int grade_to_execute);
     AForm(const AForm& src);
     AForm& operator=(const AForm& src);
-    ~AForm();
+    virtual ~AForm();
     const std::string& getName() const;
     bool getSignedFlag() const;
     int getGradeToSign() const;
@@ -37,7 +37,13 @@ class AForm {
      public:
         GradeTooLowException();
     };
+    class NotSignedException : public std::runtime_error {
+     public:
+        NotSignedException();
+    };
     void beSigned(const Bureaucrat& b);
+    virtual void execute(Bureaucrat const & executor) const = 0;
+    void checkExecutable(const Bureaucrat& b) const;
  private:
     const std::string name_;
     bool signedFlag_;

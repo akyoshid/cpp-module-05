@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 12:33:21 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/08/31 08:46:04 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/08/31 14:34:05 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,22 @@ Bureaucrat::GradeTooLowException::GradeTooLowException()
     : std::runtime_error("Bureaucrat: grade is too low") {
 }
 
-void Bureaucrat::signForm(AForm& f) {
+void Bureaucrat::signForm(AForm& f) const {
     try {
         f.beSigned(*this);
         std::cout << name_ << " signed " << f.getName() << std::endl;
     } catch (std::exception& e) {
         std::cerr << name_ << " couldn’t sign " << f.getName()
+            << " because '" << e.what() << "'." << std::endl;
+    }
+}
+
+void Bureaucrat::executeForm(const AForm& f) const {
+    try {
+        f.execute(*this);
+        std::cout << name_ << " executed " << f.getName() << std::endl;
+    } catch (std::exception& e) {
+        std::cerr << name_ << " couldn’t execute " << f.getName()
             << " because '" << e.what() << "'." << std::endl;
     }
 }
