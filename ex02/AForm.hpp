@@ -6,12 +6,12 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 01:30:20 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/08/31 14:12:58 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/08/31 15:43:32 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EX02_FORM_HPP_
-# define EX02_FORM_HPP_
+#ifndef EX02_AFORM_HPP_
+# define EX02_AFORM_HPP_
 
 # include <string>
 # include <iostream>
