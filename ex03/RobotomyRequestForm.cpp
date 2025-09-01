@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 08:43:23 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/08/31 15:29:08 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/09/01 20:03:54 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
     std::string mes = "Bzzzzzz... drilling noises...\n";
     for (int i = 0; mes[i] != '\0'; ++i) {
         std::cout << mes[i] << '\a' << std::flush;
-        usleep(500000);
+        usleep(200000);
     }
     static bool seeded = false;
     if (!seeded) {
